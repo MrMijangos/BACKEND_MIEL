@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'application'
+}
+
+group = 'org.API_Miel'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation 'io.javalin:javalin-bundle:6.7.0'
+    implementation 'com.mysql:mysql-connector-j:9.3.0'
+    implementation 'com.zaxxer:HikariCP:5.0.1'
+    implementation 'com.password4j:password4j:1.6.3'
+    implementation 'io.github.cdimascio:java-dotenv:3.0.0'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+shadowJar {
+    manifest {
+        attributes('Main-Class': 'org.API_Miel.Main')
+    }
+}
+
+application {
+    mainClass = 'org.API_Miel.Main'
+}
