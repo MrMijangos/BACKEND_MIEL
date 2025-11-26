@@ -1,6 +1,8 @@
 package org.API_Miel;
 
 import io.javalin.Javalin;
+
+import org.API_Miel.Analytics.routes.AnalyticsRoutes;
 import org.API_Miel.Carrito.routes.CarritoRoutes;
 import org.API_Miel.Direccion.routes.DireccionRoutes;
 import org.API_Miel.MetodoPago.routes.MetodoPagoRoutes;
@@ -34,6 +36,9 @@ public class ApiRouters {
 
         // 7. RESENA (Método de instancia con nombre diferente: registerRoutes)
         new ResenaRoutes().registerRoutes(app);
+
+        // 8. ANALYTICS (Método de instancia)
+        new AnalyticsRoutes().register(app);
 
         // Ruta base de prueba
         app.get("/", ctx -> ctx.result("API Miel E-commerce funcionando correctamente 🐝"));
