@@ -20,7 +20,6 @@ public class AnalyticsService {
         AnalyticsResponse response = new AnalyticsResponse();
         response.setDetallePorProducto(sales);
         
-        // Calcular totales globales iterando la lista
         int totalUnidades = 0;
         BigDecimal totalGanancia = BigDecimal.ZERO;
 
